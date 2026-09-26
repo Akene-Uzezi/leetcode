@@ -1,21 +1,21 @@
 package main
 
 func removeDuplicates(nums []int) int {
-	k := 0
-	var next int
-	for i, num := range nums {
-		current := num
-		if i+1 < len(nums) {
-			next = nums[i+1]
-		}
-		if current == next {
+	if len(nums) == 0 {
+		return 0
+	}
+	k := 1
+
+	for i := 1; i < len(nums); i++ {
+		if nums[i] != nums[k-1] {
+			nums[k] = nums[i]
 			k++
 		}
 	}
-	return len(nums) - k
+	return k
 }
 
 func main() {
-	val := removeDuplicates([]int{1, 1, 2})
+	val := removeDuplicates([]int{0, 1, 1, 2, 2, 3, 4, 4, 5})
 	println(val)
 }

@@ -2,8 +2,15 @@ package main
 
 import "fmt"
 
-func firstPalindrome(words []string) *string {
-	return nil
+func firstPalindrome(words []string) string {
+	for i := 0; i < len(words); i++ {
+		if !isPalindrome(words[i]) {
+			continue
+		} else {
+			return words[i]
+		}
+	}
+	return ""
 }
 
 func isPalindrome(s string) bool {

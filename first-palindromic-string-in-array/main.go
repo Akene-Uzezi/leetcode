@@ -1,16 +1,21 @@
 package main
 
+import "fmt"
+
 func firstPalindrome(words []string) *string {
 	return nil
 }
 
-func isPalindrome(s string) *bool {
+func isPalindrome(s string) bool {
 	runes := []rune(s)
 	for i, j := 0, len(s)-1; i < j; i, j = i+1, j-1 {
 		runes[i], runes[j] = runes[j], runes[i]
 	}
 	compare := s == string(runes)
-	return &compare
+	return compare
 }
 
-func main() {}
+func main() {
+	val := isPalindrome("mom")
+	fmt.Println(val)
+}

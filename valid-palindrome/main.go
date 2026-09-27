@@ -1,6 +1,9 @@
 package main
 
-import "strings"
+import (
+	"fmt"
+	"strings"
+)
 
 func isPalindrome(s string) bool {
 	s = strings.TrimSpace(s)
@@ -18,4 +21,9 @@ func reverseString(s string) string {
 	}
 
 	return string(runes)
+}
+
+func main() {
+	val := reverseString("james")
+	fmt.Println(val)
 }

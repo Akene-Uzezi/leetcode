@@ -9,8 +9,11 @@ type ListNode struct {
 
 func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 	l1arr := make([]int, lenlist(l1))
-	_ = ivra(l1arr, l1)
-	return nil
+	l2arr := make([]int, lenlist(l2))
+	l1int := ivra(l1arr, l1)
+	l2int := ivra(l2arr, l2)
+	sum := l1int + l2int
+	return itarl(sum)
 }
 
 func reverseArrayIntoInt(arr []int) int {
@@ -87,7 +90,24 @@ func lenlist(head *ListNode) int {
 }
 
 func main() {
-	integer := 12345
-	intarr := intToArr(integer)
-	fmt.Println(intarr)
+	l1 := &ListNode{
+		Val: 2,
+		Next: &ListNode{
+			Val: 4,
+			Next: &ListNode{
+				Val: 3,
+			},
+		},
+	}
+	l2 := &ListNode{
+		Val: 5,
+		Next: &ListNode{
+			Val: 6,
+			Next: &ListNode{
+				Val: 4,
+			},
+		},
+	}
+	result := addTwoNumbers(l1, l2)
+	fmt.Println(result, result.Val, result.Next, result.Next.Next, result.Next.Next.Next)
 }

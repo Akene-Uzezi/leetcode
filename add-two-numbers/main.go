@@ -13,6 +13,17 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 	return nil
 }
 
+func reverseArrayIntoInt(arr []int) int {
+	count := 0
+	for i, j := 0, len(arr)-1; i < j; i, j = i+1, j-1 {
+		arr[i], arr[j] = arr[j], arr[i]
+	}
+	for _, digit := range arr {
+		count = count*10 + digit
+	}
+	return count
+}
+
 func inputValueToArray(arr []int, l *ListNode) []int {
 	current := l
 	i := 0
@@ -35,16 +46,7 @@ func lenlist(head *ListNode) int {
 }
 
 func main() {
-	testl := ListNode{
-		Val: 1,
-		Next: &ListNode{
-			Val: 2,
-			Next: &ListNode{
-				Val: 3,
-			},
-		},
-	}
-	testarr := make([]int, lenlist(&testl))
-	testarr = inputValueToArray(testarr, &testl)
-	fmt.Println(testarr)
+	arr := []int{1, 2, 3, 4, 5}
+	int := reverseArrayIntoInt(arr)
+	fmt.Println(int)
 }

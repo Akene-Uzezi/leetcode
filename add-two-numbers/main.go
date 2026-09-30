@@ -15,8 +15,10 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 
 func inputValueToArray(arr []int, l *ListNode) []int {
 	current := l
+	i := 0
 	for current != nil {
-		arr = append(arr, current.Val)
+		arr[i] = current.Val
+		i++
 		current = current.Next
 	}
 	return arr
@@ -42,6 +44,7 @@ func main() {
 			},
 		},
 	}
-	fmt.Println(testl.Val, testl.Next.Val, testl.Next.Next.Val, testl.Next.Next.Next)
-	fmt.Println(lenlist(&testl))
+	testarr := make([]int, lenlist(&testl))
+	testarr = inputValueToArray(testarr, &testl)
+	fmt.Println(testarr)
 }

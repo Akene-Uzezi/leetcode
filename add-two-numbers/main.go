@@ -40,6 +40,20 @@ func inputValueToArray(arr []int, l *ListNode) []int {
 	return arr
 }
 
+func intToArr(num int) []int {
+	if num == 0 {
+		return []int{0}
+	}
+
+	var digits []int
+	for num > 0 {
+		digit := num % 10
+		digits = append([]int{digit}, digits...)
+		num = num / 10
+	}
+	return digits
+}
+
 func lenlist(head *ListNode) int {
 	count := 0
 	current := head
@@ -51,7 +65,7 @@ func lenlist(head *ListNode) int {
 }
 
 func main() {
-	arr := []int{1, 2, 3, 4, 5}
-	int := reverseArrayIntoInt(arr)
-	fmt.Println(int)
+	integer := 12345
+	intarr := intToArr(integer)
+	fmt.Println(intarr)
 }

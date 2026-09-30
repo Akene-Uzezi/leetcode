@@ -8,7 +8,18 @@ type ListNode struct {
 }
 
 func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
+	l1arr := make([]int, lenlist(l1))
+	l1arr = inputValueToArray(l1arr, l1)
 	return nil
+}
+
+func inputValueToArray(arr []int, l *ListNode) []int {
+	current := l
+	for current != nil {
+		arr = append(arr, current.Val)
+		current = current.Next
+	}
+	return arr
 }
 
 func lenlist(head *ListNode) int {

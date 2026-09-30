@@ -54,6 +54,28 @@ func intToArr(num int) []int {
 	return digits
 }
 
+func itarl(integer int) *ListNode {
+	intarr := intToArr(integer)
+	for i, j := 0, len(intarr)-1; i < j; i, j = i+1, j-1 {
+		intarr[i], intarr[j] = intarr[j], intarr[i]
+	}
+	return arrayToLinkedList(intarr)
+}
+
+func arrayToLinkedList(arr []int) *ListNode {
+	if len(arr) == 0 {
+		return nil
+	}
+
+	head := &ListNode{Val: arr[0]}
+	current := head
+	for i := 1; i < len(arr); i++ {
+		current.Next = &ListNode{Val: arr[i]}
+		current = current.Next
+	}
+	return head
+}
+
 func lenlist(head *ListNode) int {
 	count := 0
 	current := head

@@ -3,20 +3,27 @@ package main
 import "fmt"
 
 func isAnagram(s string, t string) bool {
-	sHash := make(map[rune]bool)
-	tHash := make(map[rune]bool)
-	for _, l := range s {
-		sHash[l] = true
+	if len(s) != len(t) {
+		return false
 	}
-	for _, l := range t {
-		tHash[l] = true
+
+	count := [26]int{}
+	for i := 0; i < len(s); i++ {
+		count[s[i]-'a']++
+		count[t[i]-'a']--
 	}
-	return len(sHash) == len(tHash)
+
+	for _, val := range count {
+		if val != 0 {
+			return false
+		}
+	}
+
+	return true
 }
 
 func main() {
 	s := "anagram"
-	t := "test"
-	val := isAnagram(s, t)
-	fmt.Println(val)
+	t := "aaaaaaa"
+	fmt.Println(isAnagram(s, t))
 }

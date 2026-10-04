@@ -17,8 +17,8 @@ func twoSum(nums []int, target int) []int {
 }
 
 func main() {
-	testarr := []int{4, 5, 6}
-	testtarget := 10
+	testarr := []int{3, 2, 4}
+	testtarget := 6
 	val := twoSum(testarr, testtarget)
 	fmt.Println(val)
 }

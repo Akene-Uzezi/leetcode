@@ -6,7 +6,18 @@ func groupAnagrams(strs []string) [][]string {
 	if len(strs) == 1 {
 		return [][]string{{strs[0]}}
 	}
-	return nil
+	var group [][]string
+	for i := 1; i < len(strs); i++ {
+		for j := 0; j < i; j++ {
+			if isAnagram(strs[i], strs[j]) {
+				group = append(group, []string{strs[i], strs[j]})
+				continue
+			} else {
+				group = append(group, []string{strs[j]})
+			}
+		}
+	}
+	return group
 }
 
 func isAnagram(s string, t string) bool {
